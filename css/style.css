@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+
+.card{
+    position: relative;
+}
+.card img{
+    aspect-ratio: 0.8;
+}
+.price{
+    text-align: center;
+    font-family: "Pacifico", cursive;
+    font-size: 25px;
+    font-weight: 400;
+    font-style: normal;
+    position: absolute;
+    top: 120px;
+    right: 20px;
+    border:3px dashed #fff;
+}
+.item{
+    margin-bottom:20px;
+}
+
+
+.line-clamp-caption{
+    overflow:hidden !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 1 !important;
+}
+.line-clamp-desc{
+    overflow:hidden !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 3 !important;
+}
+.text-align{
+    text-align: center;
+}
