@@ -2,21 +2,16 @@ import * as api from '../js/api.js';
 
 const productWrap = document.querySelector('.card-deck');
 
-const importantProducts = [1,4,7,10,2,5];
-function getImportantProducts(importantProducts){
-    let allPromise = [];
-    importantProducts.forEach((prodId,idx) => {
-        allPromise[idx] = api.getOneProduct(prodId);
-    });
+const importantProducts = [1,4,7,10,2,5,11,14,16];
 
-    return allPromise;
+function getImportantProducts(importantProducts){
+    return importantProducts.map(prodId => api.getOneProduct(prodId));
 }
 
-const test =  getImportantProducts(importantProducts);
+const importantProductsResult =  getImportantProducts(importantProducts);
 
-Promise.all(test).then(data => {
+Promise.all(importantProductsResult).then(data => {
     data.forEach(product => {
-        console.log(product);
         productWrap.innerHTML += `
         <div class='col-lg-4 item'>
             <div class="card">
@@ -37,18 +32,3 @@ Promise.all(test).then(data => {
         `;
     });
 });
-
-// {
-//     "id": 1,
-//     "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-//     "price": 109.95,
-//     "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-//     "category": "men's clothing",
-//     "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-//     "rating": {
-//         "rate": 3.9,
-//         "count": 120
-//     }
-// }
-
-//api.getOneProduct(1).then(product => console.log(product))
